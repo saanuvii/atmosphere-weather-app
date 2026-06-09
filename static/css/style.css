@@ -1,0 +1,235 @@
+/* Color Palette System Matrices */
+:root {
+    /* Premium High-Contrast Light Mode UI (Daytime theme) */
+    --bg-gradient-start: #e0eafc;
+    --bg-gradient-end: #cfdef3;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-primary: #1e293b;       /* Slate 800 - Crisp readability */
+    --text-muted: #64748b;         /* Slate 500 */
+    --card-shadow: 0 10px 30px -5px rgba(30, 41, 59, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.7);
+    --input-focus-bg: #ffffff;
+    --sub-item-bg: rgba(255, 255, 255, 0.5);
+    --recent-tag-bg: rgba(255, 255, 255, 0.6);
+    --badge-bg: #1e293b;
+    --badge-text: #ffffff;
+    --divider-color: rgba(30, 41, 59, 0.12);
+    --spinner-color: #3b82f6;
+    --chart-line-color: #3b82f6;
+    --chart-grid-color: rgba(30, 41, 59, 0.06);
+}
+
+[data-theme="dark"] {
+    /* Sleek Nightmode Cyberpunk Glass Theme */
+    --bg-gradient-start: #0f172a;  /* Deep Slate 900 */
+    --bg-gradient-end: #020617;    /* Deep Slate 950 */
+    --glass-bg: rgba(30, 41, 59, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --text-primary: #f8fafc;       /* Slate 50 */
+    --text-muted: #94a3b8;         /* Slate 400 */
+    --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    --input-bg: rgba(15, 23, 42, 0.6);
+    --input-focus-bg: rgba(15, 23, 42, 0.8);
+    --sub-item-bg: rgba(255, 255, 255, 0.03);
+    --recent-tag-bg: rgba(255, 255, 255, 0.05);
+    --badge-bg: #f8fafc;
+    --badge-text: #0f172a;
+    --divider-color: rgba(255, 255, 255, 0.08);
+    --spinner-color: #60a5fa;
+    --chart-line-color: #60a5fa;
+    --chart-grid-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Base Adjustments */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.3s ease;
+    color: var(--text-primary);
+}
+
+.container-custom {
+    max-width: 820px;
+}
+
+.logo-text {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+.dashboard-subtitle {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Color Structural Classes */
+.text-custom-primary { color: var(--text-primary); }
+.text-custom-muted { color: var(--text-muted); }
+.text-custom-icon { color: var(--text-muted); }
+.text-primary-custom { color: var(--spinner-color) !important; }
+.border-custom-divider { border-color: var(--divider-color) !important; }
+
+.country-badge {
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    transition: all 0.3s ease;
+}
+
+/* Glassmorphism Input Field Elements */
+.search-input {
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px 0 0 30px !important;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-primary) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-input:focus {
+    background: var(--input-focus-bg);
+    border-color: var(--spinner-color);
+    box-shadow: none;
+}
+
+.btn-search {
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    border-left: none;
+    border-radius: 0 30px 30px 0 !important;
+    color: var(--text-primary);
+    padding: 0 1.5rem;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    background: var(--input-focus-bg);
+    color: var(--spinner-color);
+}
+
+/* Core Functional Control Action Buttons */
+.btn-action {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-action:hover {
+    color: var(--spinner-color);
+    transform: translateY(-2px);
+    border-color: var(--spinner-color);
+}
+
+/* History Query Pill Tags */
+.btn-tag {
+    background: var(--recent-tag-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    border-radius: 20px;
+    padding: 0.25rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: var(--card-shadow);
+    transition: all 0.2s ease;
+}
+
+.btn-tag:hover {
+    background: var(--text-primary);
+    color: var(--bg-gradient-start);
+}
+
+/* Main Dashboard Wrapper Glass Panel Cards */
+.card-main {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--card-shadow);
+    color: var(--text-primary);
+    transition: background 0.4s ease, border 0.4s ease;
+}
+
+.metric-sub-item {
+    background: var(--sub-item-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    transition: background 0.4s ease;
+}
+
+/* Forecast Sub-Cards Layout */
+.card-forecast {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--card-shadow);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.card-forecast:hover {
+    transform: translateY(-4px);
+    border-color: var(--spinner-color);
+}
+
+/* Metric System Control Buttons */
+.btn-unit {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding: 0 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.btn-unit.active, .btn-unit:hover {
+    color: var(--spinner-color);
+}
+
+/* Scale Framework Vector Images */
+.weather-large-img {
+    width: 135px;
+    height: 135px;
+    filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.12));
+}
+
+.weather-forecast-img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Motion Animation Frame Effects */
+.animate-fade {
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
