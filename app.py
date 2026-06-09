@@ -148,5 +148,15 @@ def get_weather():
     except Exception:
         return jsonify({'error': 'An internal data processing error occurred.'}), 500
 
+@app.route('/sw.js')
+def serve_service_worker():
+    """Serves the service worker script from the root scope with the correct JavaScript mime-type."""
+    return app.send_static_file('js/sw.js'), 200, {'Content-Type': 'application/javascript'}
+
+@app.route('/manifest.json')
+def serve_manifest():
+    """Serves the web manifest file from the root scope with the correct JSON mime-type."""
+    return app.send_static_file('manifest.json'), 200, {'Content-Type': 'application/json'}
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

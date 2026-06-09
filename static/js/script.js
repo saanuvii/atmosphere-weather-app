@@ -1,3 +1,12 @@
+// Register the Service Worker Middleware Scope
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Atmosphere Service Worker active on scope:', reg.scope))
+            .catch(err => console.error('Service Worker registration failure:', err));
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // UI Elements Selector Mapping
     const searchForm = document.getElementById('search-form');
